@@ -1,0 +1,1 @@
+index=web_logs ("etc/passwd" OR "boot.ini" OR "windows/system32" OR ".env")
