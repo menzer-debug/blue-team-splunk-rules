@@ -1,0 +1,1 @@
+index=web_logs ("; ls" OR "&&" OR "| bash" OR "whoami" OR "cat /etc/passwd")
