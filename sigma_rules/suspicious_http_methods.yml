@@ -1,0 +1,13 @@
+title: Suspicious HTTP Methods
+id: web-009
+description: Detects uncommon HTTP methods usage
+logsource:
+  product: webserver
+detection:
+  selection:
+    method:
+      - PUT
+      - DELETE
+      - TRACE
+  condition: selection
+level: medium
