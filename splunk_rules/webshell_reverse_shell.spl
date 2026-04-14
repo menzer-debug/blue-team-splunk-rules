@@ -1,0 +1,1 @@
+index=web_logs ("cmd=" OR "exec=" OR "system(" OR "bash -i" OR "nc -e")
