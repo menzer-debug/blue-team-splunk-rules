@@ -1,0 +1,14 @@
+title: Directory Traversal Attack
+id: web-003
+description: Detects attempts to access restricted directories
+logsource:
+  product: webserver
+detection:
+  selection:
+    uri|contains:
+      - "../"
+      - "..\\"
+      - "/etc/passwd"
+      - "boot.ini"
+  condition: selection
+level: high
