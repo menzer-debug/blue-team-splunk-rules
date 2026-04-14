@@ -1,0 +1,13 @@
+title: Local File Inclusion Attempt
+id: web-004
+description: Detects LFI attacks
+logsource:
+  product: webserver
+detection:
+  selection:
+    uri|contains:
+      - "file="
+      - "page="
+      - "php://"
+  condition: selection
+level: high
