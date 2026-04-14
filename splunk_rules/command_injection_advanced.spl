@@ -1,0 +1,1 @@
+index=web_logs ("wget http" OR "curl http" OR "nc -" OR "bash -i" OR "sh -i")
