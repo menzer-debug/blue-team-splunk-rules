@@ -1,0 +1,1 @@
+index=web_logs ("' OR '1'='1" OR "' OR 1=1" OR "OR 1=1" OR "UNION SELECT")
