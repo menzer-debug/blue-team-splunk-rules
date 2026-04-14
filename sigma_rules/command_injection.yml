@@ -1,0 +1,15 @@
+title: Command Injection Attempt
+id: web-002
+description: Detects execution of system commands via web requests
+logsource:
+  product: webserver
+detection:
+  selection:
+    uri|contains:
+      - "wget http"
+      - "curl http"
+      - "nc -"
+      - "bash -i"
+      - "sh -i"
+  condition: selection
+level: critical
