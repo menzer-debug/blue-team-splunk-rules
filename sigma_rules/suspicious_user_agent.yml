@@ -1,0 +1,14 @@
+title: Suspicious User-Agent Detected
+id: web-007
+description: Detects known malicious scanning tools
+logsource:
+  product: webserver
+detection:
+  selection:
+    user_agent|contains:
+      - "sqlmap"
+      - "nikto"
+      - "nmap"
+      - "curl"
+  condition: selection
+level: medium
