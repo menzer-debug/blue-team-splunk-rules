@@ -1,0 +1,13 @@
+title: Remote File Inclusion Attempt
+id: web-005
+description: Detects remote file loading attempts
+logsource:
+  product: webserver
+detection:
+  selection:
+    uri|contains:
+      - "http://"
+      - "https://"
+      - "ftp://"
+  condition: selection
+level: high
