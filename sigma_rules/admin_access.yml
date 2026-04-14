@@ -1,0 +1,13 @@
+title: Admin Panel Access Attempt
+id: web-010
+description: Detects access to sensitive admin paths
+logsource:
+  product: webserver
+detection:
+  selection:
+    uri|contains:
+      - "/admin"
+      - "/wp-admin"
+      - "/login"
+  condition: selection
+level: medium
