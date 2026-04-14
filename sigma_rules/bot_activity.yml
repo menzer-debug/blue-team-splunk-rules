@@ -1,0 +1,13 @@
+title: Automated Bot Activity
+id: web-015
+description: Detects automated scanning bots
+logsource:
+  product: webserver
+detection:
+  selection:
+    user_agent|contains:
+      - "bot"
+      - "crawler"
+      - "spider"
+  condition: selection
+level: low
