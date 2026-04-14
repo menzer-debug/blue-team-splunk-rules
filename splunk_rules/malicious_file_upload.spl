@@ -1,0 +1,1 @@
+index=web_logs ("file upload" OR ".php" OR ".jsp" OR ".exe" OR ".sh")
