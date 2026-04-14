@@ -1,0 +1,1 @@
+index=web_logs ("../../" OR "/etc/passwd" OR "/proc/self/environ" OR "boot.ini")
