@@ -1,0 +1,13 @@
+title: Encoded Payload Detection
+id: web-013
+description: Detects URL encoded attack payloads
+logsource:
+  product: webserver
+detection:
+  selection:
+    uri|contains:
+      - "%3Cscript%3E"
+      - "%27"
+      - "%22"
+  condition: selection
+level: medium
