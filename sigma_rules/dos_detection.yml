@@ -1,0 +1,11 @@
+title: High Request Rate from Single IP
+id: web-011
+description: Detects possible DoS activity
+logsource:
+  product: webserver
+detection:
+  selection:
+    clientip: "*"
+  timeframe: 1m
+  condition: selection | count(clientip) > 100
+level: high
