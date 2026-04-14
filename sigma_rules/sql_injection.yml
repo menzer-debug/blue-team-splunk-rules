@@ -1,0 +1,16 @@
+title: SQL Injection Attempt Detection
+id: web-001
+status: experimental
+description: Detects common SQL injection patterns in web requests
+logsource:
+  product: webserver
+detection:
+  selection:
+    query|contains:
+      - "' OR 1=1"
+      - "UNION SELECT"
+      - "SELECT * FROM"
+      - "DROP TABLE"
+      - "'--"
+  condition: selection
+level: high
