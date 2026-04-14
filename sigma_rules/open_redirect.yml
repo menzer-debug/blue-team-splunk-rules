@@ -1,0 +1,12 @@
+title: Open Redirect Attempt
+id: web-014
+description: Detects malicious redirection attempts
+logsource:
+  product: webserver
+detection:
+  selection:
+    uri|contains:
+      - "redirect="
+      - "url="
+  condition: selection
+level: medium
