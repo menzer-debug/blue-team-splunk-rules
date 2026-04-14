@@ -1,0 +1,13 @@
+title: Access to Sensitive Files
+id: web-012
+description: Detects access to critical system files
+logsource:
+  product: webserver
+detection:
+  selection:
+    uri|contains:
+      - ".env"
+      - "config.php"
+      - "database.yml"
+  condition: selection
+level: high
