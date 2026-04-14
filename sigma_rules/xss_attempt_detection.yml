@@ -1,0 +1,19 @@
+title: XSS Attempt Detection
+id: xss-001
+status: experimental
+description: Detects common cross-site scripting payloads in web application logs
+author: Manzar Guliyeva
+date: 2026-04-14
+logsource:
+  category: webserver
+detection:
+  selection:
+    cs_uri_query|contains:
+      - "<script>"
+      - "javascript:"
+      - "onerror="
+  condition: selection
+level: high
+tags:
+  - attack.initial_access
+  - attack.t1190
