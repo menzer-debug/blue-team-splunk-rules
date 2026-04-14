@@ -1,0 +1,1 @@
+index=web_logs ("sqlmap" OR "nikto" OR "nmap" OR "curl" OR "wget")
