@@ -1,0 +1,1 @@
+index=web_logs ("DROP TABLE" OR "SELECT * FROM" OR "INSERT INTO" OR "DELETE FROM")
