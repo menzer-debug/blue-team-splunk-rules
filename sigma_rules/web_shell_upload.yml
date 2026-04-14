@@ -1,0 +1,13 @@
+title: Web Shell Upload Attempt
+id: web-008
+description: Detects upload of executable scripts
+logsource:
+  product: webserver
+detection:
+  selection:
+    uri|contains:
+      - ".php"
+      - ".asp"
+      - ".jsp"
+  condition: selection
+level: critical
