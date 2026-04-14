@@ -1,0 +1,11 @@
+title: Multiple Failed Login Attempts
+id: web-006
+description: Detects brute force login attempts
+logsource:
+  product: webserver
+detection:
+  selection:
+    status: 401
+  timeframe: 5m
+  condition: selection | count(clientip) > 10
+level: medium
