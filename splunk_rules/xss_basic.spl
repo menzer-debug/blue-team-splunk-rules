@@ -1,0 +1,1 @@
+index=web_logs ("<script>" OR "javascript:" OR "onerror=")
