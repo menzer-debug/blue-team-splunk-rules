@@ -6,11 +6,16 @@ logsource:
   product: webserver
 detection:
   selection:
-    query|contains:
-      - "' OR 1=1"
+    uri|contains:
       - "UNION SELECT"
-      - "SELECT * FROM"
+      - "' OR 1=1"
       - "DROP TABLE"
       - "'--"
   condition: selection
 level: high
+
+splunk:
+  search: 'index=web_logs earliest=-5m ("UNION SELECT" OR "'\'' OR 1=1" OR "DROP TABLE" OR "'\''--")'
+  cron_schedule: "*/5 * * * *"
+  is_scheduled: true
+  disabled: false
