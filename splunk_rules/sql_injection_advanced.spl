@@ -1,1 +1,5 @@
-index=web_logs ("DROP TABLE" OR "SELECT * FROM" OR "INSERT INTO" OR "DELETE FROM")
+index=web_logs earliest=-5m 
+("UNION SELECT" OR "OR 1=1" OR "'--" OR "DROP TABLE" OR "information_schema" OR "SELECT * FROM")
+| stats count by clientip, uri, user_agent
+| where count > 3
+| sort -count
