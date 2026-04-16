@@ -1,1 +1,4 @@
-index=web_logs ("cmd=" OR "exec=" OR "system(" OR "bash -i" OR "nc -e")
+index=web_logs earliest=-5m ("bash -i" OR "sh -i" OR "nc -e" OR "/dev/tcp/" OR "powershell -nop" OR "cmd.exe /c" OR "eval-stdin.php")
+| stats count dc(uri) as unique_targets by clientip, user_agent
+| where count >= 2 OR unique_targets >= 2
+| sort -count
