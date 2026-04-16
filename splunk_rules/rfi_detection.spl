@@ -1,1 +1,4 @@
-index=web_logs ("http://" OR "https://" OR "ftp://")
+index=web_logs earliest=-10m ("http://" OR "https://" OR "ftp://")
+| stats count values(uri) as targeted_uris by clientip, user_agent
+| where count > 3
+| sort -count
