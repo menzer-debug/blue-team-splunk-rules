@@ -1,1 +1,4 @@
-index=web_logs ("etc/passwd" OR "boot.ini" OR "windows/system32" OR ".env")
+index=web_logs earliest=-15m (".env" OR "config.php" OR "database.yml" OR "wp-config.php" OR ".git/config" OR ".htaccess")
+| stats count dc(uri) as unique_targets by clientip, user_agent
+| where count > 1
+| sort -count
