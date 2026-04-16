@@ -1,1 +1,4 @@
-index=web_logs ("failed login" OR "login failed" OR "authentication failed" OR "invalid password")
+index=web_logs earliest=-5m (status=401 OR status=403 OR "login failed" OR "invalid password")
+| stats count by clientip, uri, user_agent
+| where count >= 5
+| sort -count
