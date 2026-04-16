@@ -1,1 +1,4 @@
-index=web_logs ("../../" OR "/etc/passwd" OR "/proc/self/environ" OR "boot.ini")
+index=web_logs earliest=-10m ("../" OR "..\\" OR "/etc/passwd" OR "boot.ini" OR "php://filter" OR "php://input")
+| stats count dc(uri) as unique_targets by clientip, user_agent
+| where count > 2
+| sort -count
