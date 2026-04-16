@@ -1,3 +1,4 @@
-index=web_logs ("login" OR "signin" OR "auth")
-| stats count by src_ip
-| where count > 5
+index=web_logs earliest=-5m (status=401 OR status=403 OR "login failed" OR "authentication failed")
+| stats count dc(uri) as unique_targets by clientip, user_agent
+| where count >= 10
+| sort -count
