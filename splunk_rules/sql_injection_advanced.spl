@@ -1,5 +1,5 @@
 index=web_logs earliest=-5m 
-("UNION SELECT" OR "OR 1=1" OR "'--" OR "DROP TABLE" OR "information_schema" OR "SELECT * FROM")
-| stats count by clientip, uri, user_agent
-| where count > 3
+("UNION SELECT" OR "OR 1=1" OR "'--" OR "information_schema" OR "DROP TABLE")
+| stats count dc(uri) as unique_targets by clientip, user_agent
+| where count > 3 OR unique_targets > 2
 | sort -count
