@@ -1,1 +1,4 @@
-index=web_logs ("file upload" OR ".php" OR ".jsp" OR ".exe" OR ".sh")
+index=web_logs earliest=-15m ("multipart/form-data" OR "filename=" OR ".php" OR ".jsp" OR ".asp" OR ".exe" OR ".sh")
+| stats count values(uri) as targeted_uris by clientip, user_agent
+| where count > 2
+| sort -count
